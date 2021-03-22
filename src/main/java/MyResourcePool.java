@@ -34,8 +34,8 @@ public class MyResourcePool<T extends Runnable> {
         }
     }
 
-    public boolean execute(T task) {
-        if (resources.size() < poolCapacity) {
+    public void execute(T task) {
+        if ((taskQueue.size() > 0) && (resources.size() < poolCapacity)) {
             synchronized (resources) {
                 if (resources.size() < poolCapacity) {
                     MyResource<T> newResource = new MyResource<>(this, idleTime);
@@ -44,7 +44,7 @@ public class MyResourcePool<T extends Runnable> {
                 }
             }
         }
-        return taskQueue.add(task);
+        taskQueue.add(task);
     }
 
     public boolean increasePoolCapacity(int inc) {

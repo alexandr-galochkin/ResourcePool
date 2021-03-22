@@ -20,7 +20,7 @@ public class QuadraticEquation implements Runnable {
         execute();
         synchronized (outputStream) {
             try {
-                outputStream.write(this.toString() +" Поток:"  +Thread.currentThread().getId()+"\n");
+                outputStream.write(this.toString() + "\n");
                 if (solutions.size() == 0) {
                     outputStream.write("Либо корней нет, либо их бесконечно много.\n");
                 } else if (solutions.size() == 1) {
