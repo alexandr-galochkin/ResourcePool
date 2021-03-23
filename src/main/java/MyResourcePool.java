@@ -64,4 +64,25 @@ public class MyResourcePool<T extends Runnable> {
         return !taskQueue.isEmpty();
     }
 
+    public int getNumberOfResources(){
+        return resources.size();
+    }
+
+    public void waitAllResources(){
+        while(resources.size()!= 0){
+            MyResource<T> currentRes = null;
+            synchronized (resources){
+                if (resources.size()!=0){
+                    currentRes = resources.get(0);
+               }
+            }
+            if (currentRes != null){
+                try {
+                    currentRes.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }
