@@ -30,13 +30,17 @@ public class MyResourcePoolTest {
             }
             resourcePool.waitAllResources();
             BufferedReader readerSolutions = new BufferedReader(new FileReader(solutions));
+            StringBuilder expectedResult = new StringBuilder();
+            StringBuilder actualResult = new StringBuilder();
             for(int i = 0; i < 100; i++){
-                String nextEquals = readerSolutions.readLine();
-                String nextSolutions = readerSolutions.readLine();
-                Assert.assertEquals("1*x^2-2*x+1=0", nextEquals);
-                Assert.assertEquals("Один корень: 1.0", nextSolutions);
+                expectedResult.append("1*x^2-2*x+1=0\n");
+                expectedResult.append("Один корень: 1.0\n");
+                actualResult.append(readerSolutions.readLine()).append("\n");
+                actualResult.append(readerSolutions.readLine()).append("\n");
             }
+            Assert.assertEquals(expectedResult.toString(), actualResult.toString());
         } catch (IOException e) {
+            Assert.fail();
             e.printStackTrace();
         }
     }
