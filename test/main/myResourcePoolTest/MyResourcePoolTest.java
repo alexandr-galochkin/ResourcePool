@@ -1,3 +1,7 @@
+package main.myResourcePoolTest;
+
+import main.equation.QuadraticEquation;
+import main.myResourcePool.MyResourcePool;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -21,7 +25,7 @@ public class MyResourcePoolTest {
     @Test
     public void execute(){
         MyResourcePool<QuadraticEquation> resourcePool= new MyResourcePool<>(10, 10);
-        File solutions = new File("src//main//test//testResources//solutions.txt");
+        File solutions = new File("test//main//resources//solutions.txt");
         try {
             BufferedWriter outputStream = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(solutions)));
             for (int i = 0; i < 100; i ++){

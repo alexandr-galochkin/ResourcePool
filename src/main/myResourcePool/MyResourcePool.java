@@ -1,3 +1,5 @@
+package main.myResourcePool;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
@@ -10,7 +12,7 @@ public class MyResourcePool<T extends Runnable> {
     final BlockingQueue<T> taskQueue;
     final ArrayList<MyResource<T>> resources;
 
-    MyResourcePool(int idleTime) {
+    public MyResourcePool(int idleTime) {
         this.idleTime = idleTime;
         poolCapacity = startPoolCapacity;
         taskQueue = new LinkedBlockingDeque<T>();
@@ -22,7 +24,7 @@ public class MyResourcePool<T extends Runnable> {
         }
     }
 
-    MyResourcePool(int startPoolCapacity, int idleTime) {
+    public MyResourcePool(int startPoolCapacity, int idleTime) {
         this.idleTime = idleTime;
         poolCapacity = startPoolCapacity;
         taskQueue = new LinkedBlockingDeque<T>();

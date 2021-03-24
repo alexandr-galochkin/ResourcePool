@@ -1,3 +1,7 @@
+package main.myResourcePool;
+
+import main.myResourcePool.MyResourcePool;
+
 class MyResource<T extends Runnable> extends Thread {
     private final MyResourcePool<T> myResourcePool;
     int idleTime;

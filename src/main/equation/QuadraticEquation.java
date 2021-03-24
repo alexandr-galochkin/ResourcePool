@@ -1,3 +1,5 @@
+package main.equation;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,7 +10,7 @@ public class QuadraticEquation implements Runnable {
     private List<Double> solutions;
     private final BufferedWriter outputStream;
 
-    QuadraticEquation(int a, int b, int c, BufferedWriter outputStream) {
+    public QuadraticEquation(int a, int b, int c, BufferedWriter outputStream) {
         this.a = a;
         this.b = b;
         this.c = c;
